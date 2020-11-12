@@ -1,0 +1,9 @@
+client:
+  name: car
+  address: localhost:4321
+  tls:
+    enable: false
+    key: certs/client.key
+    cert: certs/client.pem
+    rootcert: certs/ca.pem
+

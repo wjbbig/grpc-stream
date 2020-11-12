@@ -1,0 +1,17 @@
+server:
+  port: :50001
+  http_port: :50002
+  tls:
+    enable: true
+    key: ../certs/server.key
+    cert: ../certs/server.pem
+    rootcert: ../certs/ca.pem
+  timeout:
+    startup: 5s
+    execution: 30s
+    connectiontimeout: 5s
+  keepalive:
+    interval:
+    timeout:
+    mininterval:
+  db: ../db/server.db

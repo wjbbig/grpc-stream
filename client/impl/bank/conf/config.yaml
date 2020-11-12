@@ -1,0 +1,9 @@
+client:
+  name: bank
+  address: "localhost:50001"
+  tls:
+    enable: true
+    key: certs/client.key
+    cert: certs/client.pem
+    rootcert: certs/ca.pem
+

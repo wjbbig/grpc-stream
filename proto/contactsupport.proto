@@ -1,0 +1,51 @@
+syntax = "proto3";
+package proto;
+
+enum ContactMessage_Type {
+  UNDEFINED = 0;
+  REGISTER = 1;
+  REGISTERED = 2;
+  READY = 3;
+  KEEPALIVE = 4;
+  ERROR = 5;
+  RESPONSE = 6;
+  GET_STATE = 7;
+  PUT_STATE = 8;
+  DEL_STATE = 9;
+  INIT = 10;
+  INVOKE = 11;
+  COMPLETED = 12;
+}
+
+message ContactMessage {
+  ContactMessage_Type type = 1;
+  bytes payload = 3;
+  string msgId = 4;
+}
+
+message ContactInput {
+  repeated bytes Args = 1;
+}
+
+message ClientName {
+  string name = 1;
+}
+
+message Response {
+  int32 status = 1;
+  string message = 2;
+  bytes payload = 3;
+}
+
+message GetState {
+  string key = 1;
+}
+
+message PutState {
+  string key = 1;
+  bytes value = 2;
+}
+
+service ContactSupport {
+  rpc Register(stream ContactMessage) returns(stream ContactMessage) {}
+}
